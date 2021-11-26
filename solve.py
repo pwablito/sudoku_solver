@@ -7,9 +7,9 @@ from puzzle import Puzzle
 def main():
     parser = argparse.ArgumentParser(description="Solve a sudoku puzzle")
     parser.add_argument(
-        "-f", "--file",
+        "file",
         help="File containing sudoku puzzle",
-        type=str, required=True
+        type=str
     )
     args = parser.parse_args()
     puzzle = Puzzle(args.file)
