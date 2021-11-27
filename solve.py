@@ -12,7 +12,7 @@ def main():
         type=str
     )
     args = parser.parse_args()
-    puzzle = Puzzle(args.file)
+    puzzle = Puzzle.from_file(args.file)
     print(puzzle.is_solved())
 
 

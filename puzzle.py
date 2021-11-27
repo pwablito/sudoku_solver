@@ -19,8 +19,24 @@ class Puzzle:
             return False
         return self.valid_values()
 
-    def valid_values():
-        raise NotImplementedError
+    def valid_values(self):
+        try:
+            for i in range(9):
+                available_values = list(range(1, 10))
+                for item in self.arr[i]:
+                    if item is not EMPTY:
+                        assert item in available_values
+                        available_values.remove(item)
+            for i in range(9):
+                available_values = list(range(1, 10))
+                for item in self.arr[:][i]:
+                    if item is not EMPTY:
+                        assert item in available_values
+                        available_values.remove(item)
+            raise NotImplementedError("Checking 3x3 squares not implemented")
+        except AssertionError:
+            return False
+        return True
 
     @classmethod
     def from_file(cls, filename):
@@ -28,7 +44,7 @@ class Puzzle:
         with open(filename) as f:
             lines = f.readlines()
             for line in lines:
-                nums = lines.split()
+                nums = line.split()
                 state_line = []
                 for digit in nums:
                     if digit.isdigit():
