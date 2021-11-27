@@ -13,7 +13,8 @@ def main():
     )
     args = parser.parse_args()
     puzzle = Puzzle.from_file(args.file)
-    print(puzzle.is_solved())
+    # puzzle.solve()
+    print(puzzle)
 
 
 if __name__ == "__main__":

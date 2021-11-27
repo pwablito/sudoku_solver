@@ -66,3 +66,16 @@ class Puzzle:
         if not obj.is_valid():
             raise ValueError("Invalid initial state")
         return obj
+
+    def solve(self):
+        raise NotImplementedError
+
+    def __str__(self):
+        str_array = [
+            [
+                str(item) if item is not EMPTY
+                else " " for item in line
+            ]
+            for line in self.arr
+        ]
+        return "\n".join([" ".join(line) for line in str_array])
