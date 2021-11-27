@@ -13,7 +13,7 @@ def main():
     )
     args = parser.parse_args()
     puzzle = Puzzle.from_file(args.file)
-    # puzzle.solve()
+    puzzle.solve()
     print(puzzle)
 
 
