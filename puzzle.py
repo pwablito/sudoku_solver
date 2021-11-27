@@ -6,8 +6,11 @@ class Puzzle:
         self.arr = arr
 
     def is_solved(self):
-        for line in self.arr:
-            assert EMPTY not in line
+        try:
+            for line in self.arr:
+                assert EMPTY not in line
+        except AssertionError:
+            return False
         return self.is_valid()
 
     def is_valid(self):
@@ -33,7 +36,14 @@ class Puzzle:
                     if item is not EMPTY:
                         assert item in available_values
                         available_values.remove(item)
-            raise NotImplementedError("Checking 3x3 squares not implemented")
+            for row_offset in [0, 3, 6]:
+                for col_offset in [0, 3, 6]:
+                    available_values = list(range(1, 10))
+                    for row in range(row_offset, row_offset + 3):
+                        for col in range(col_offset, col_offset + 3):
+                            if item is not EMPTY:
+                                assert item in available_values
+                                available_values.remove(item)
         except AssertionError:
             return False
         return True
