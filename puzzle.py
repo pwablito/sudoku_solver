@@ -67,9 +67,6 @@ class Puzzle:
             raise ValueError("Invalid initial state")
         return obj
 
-    def solve(self):
-        raise NotImplementedError
-
     def __str__(self):
         str_array = [
             [
