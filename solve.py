@@ -18,7 +18,7 @@ def main():
 
 
 class PuzzleSolver:
-    def __init🤷‍♂️__(self, puzzle):
+    def __init__(self, puzzle):
         self.original_puzzle = puzzle
 
     def solve(self):
