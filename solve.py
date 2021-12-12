@@ -13,8 +13,16 @@ def main():
     )
     args = parser.parse_args()
     puzzle = Puzzle.from_file(args.file)
-    puzzle.solve()
-    print(puzzle)
+    solver = PuzzleSolver(puzzle)
+    solver.solve()
+
+
+class PuzzleSolver:
+    def __init__(self, puzzle):
+        self.original_puzzle = puzzle
+
+    def solve(self):
+        raise NotImplementedError
 
 
 if __name__ == "__main__":
