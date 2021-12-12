@@ -27,13 +27,13 @@ class Puzzle:
             for i in range(9):
                 available_values = list(range(1, 10))
                 for item in self.arr[i]:
-                    if item is not EMPTY:
+                    if item != EMPTY:
                         assert item in available_values
                         available_values.remove(item)
             for i in range(9):
                 available_values = list(range(1, 10))
                 for item in self.arr[:][i]:
-                    if item is not EMPTY:
+                    if item != EMPTY:
                         assert item in available_values
                         available_values.remove(item)
             for row_offset in [0, 3, 6]:
@@ -41,7 +41,7 @@ class Puzzle:
                     available_values = list(range(1, 10))
                     for row in range(row_offset, row_offset + 3):
                         for col in range(col_offset, col_offset + 3):
-                            if item is not EMPTY:
+                            if item != EMPTY:
                                 assert item in available_values
                                 available_values.remove(item)
         except AssertionError:
