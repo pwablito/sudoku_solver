@@ -76,3 +76,6 @@ class Puzzle:
             for line in self.arr
         ]
         return "\n".join([" ".join(line) for line in str_array])
+
+    def copy(self):
+        return Puzzle(self.arr.copy())
