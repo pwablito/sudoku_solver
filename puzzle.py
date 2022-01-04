@@ -9,18 +9,21 @@ class Puzzle:
         try:
             for line in self.arr:
                 assert EMPTY not in line
+            return self.is_valid()
         except AssertionError:
             return False
-        return self.is_valid()
 
     def is_valid(self):
+        return self.valid_shape() and self.valid_values()
+
+    def valid_shape(self):
         try:
             assert len(self.arr) == 9
             for line in self.arr:
                 assert len(line) == 9
+            return True
         except AssertionError:
             return False
-        return self.valid_values()
 
     def valid_values(self):
         try:
@@ -32,7 +35,7 @@ class Puzzle:
                         available_values.remove(item)
             for i in range(9):
                 available_values = list(range(1, 10))
-                for item in self.arr[:][i]:
+                for item in [line[i] for line in self.arr]:
                     if item != EMPTY:
                         assert item in available_values
                         available_values.remove(item)
@@ -41,12 +44,13 @@ class Puzzle:
                     available_values = list(range(1, 10))
                     for row in range(row_offset, row_offset + 3):
                         for col in range(col_offset, col_offset + 3):
+                            item = self.arr[row][col]
                             if item != EMPTY:
                                 assert item in available_values
                                 available_values.remove(item)
+            return True
         except AssertionError:
             return False
-        return True
 
     @classmethod
     def from_file(cls, filename):
