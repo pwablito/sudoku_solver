@@ -4,9 +4,9 @@ import reduction
 
 class HumanPuzzleSolver(PuzzleSolver):
     strategies = [
-        reduction.BlockReductionStrategy,
-        reduction.RowReductionStrategy,
-        reduction.ColumnReductionStrategy,
+        reduction.LastInBlockReductionStrategy,
+        reduction.LastInRowReductionStrategy,
+        reduction.LastInColumnReductionStrategy,
         reduction.ObviousPairsReductionStrategy,
         reduction.ObviousTriplesReductionStrategy,
     ]

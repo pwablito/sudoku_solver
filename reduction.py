@@ -12,7 +12,7 @@ class ReductionStrategy:
         raise NotImplementedError("Abstract method")
 
 
-class BlockReductionStrategy(ReductionStrategy):
+class LastInBlockReductionStrategy(ReductionStrategy):
     def reduce(self):
         updated = False
         for row_offset in [0, 3, 6]:
@@ -34,12 +34,12 @@ class BlockReductionStrategy(ReductionStrategy):
         return self.puzzle, updated
 
 
-class RowReductionStrategy(ReductionStrategy):
+class LastInRowReductionStrategy(ReductionStrategy):
     def reduce(self):
         raise NotImplementedError
 
 
-class ColumnReductionStrategy(ReductionStrategy):
+class LastInColumnReductionStrategy(ReductionStrategy):
     def reduce(self):
         raise NotImplementedError
 
