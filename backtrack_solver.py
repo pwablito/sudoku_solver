@@ -22,6 +22,7 @@ class BacktrackPuzzleSolver(PuzzleSolver):
         @return 2D array or False
         '''
         i, j = BacktrackPuzzleSolver.first_empty_coords(state)
+        # TODO multithread this
         for test_val in range(1, 10):  # Numbes 1-9
             state[i][j] = test_val
             if Puzzle(state).is_valid():
