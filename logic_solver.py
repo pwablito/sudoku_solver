@@ -2,7 +2,7 @@ from solver import PuzzleSolver
 import reduction
 
 
-class HumanPuzzleSolver(PuzzleSolver):
+class LogicPuzzleSolver(PuzzleSolver):
     strategies = [
         reduction.LastInBlockReductionStrategy,
         reduction.LastInRowReductionStrategy,

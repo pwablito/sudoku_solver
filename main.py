@@ -2,9 +2,9 @@
 
 import argparse
 from puzzle import Puzzle
-from solver import PuzzleSolver
-from bruteforce_solver import BruteForcePuzzleSolver
-from human_solver import HumanPuzzleSolver
+from logic_solver import LogicPuzzleSolver
+from backtrack_solver import BacktrackPuzzleSolver
+from stochastic_solver import StochasticPuzzleSolver
 
 
 def main():
@@ -17,14 +17,16 @@ def main():
     parser.add_argument(
         "method",
         help="Method to solve puzzle",
-        options=["brute", "human"],
+        options=["logic", "backtrack", "stochastic"],
     )
     args = parser.parse_args()
-    solver_cls = PuzzleSolver
-    if args.method == "brute":
-        solver_cls = BruteForcePuzzleSolver
-    elif args.method == "human":
-        solver_cls = HumanPuzzleSolver
+    solver_cls = None
+    if args.method == "logic":
+        solver_cls = LogicPuzzleSolver
+    elif args.method == "backtrack":
+        solver_cls = BacktrackPuzzleSolver
+    elif args.method == "stochastic":
+        solver_cls = StochasticPuzzleSolver
     puzzle = Puzzle.from_file(args.file)
     print("Before:")
     print(puzzle)
