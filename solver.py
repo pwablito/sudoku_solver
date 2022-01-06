@@ -3,4 +3,4 @@ class PuzzleSolver:
         self.puzzle = puzzle
 
     def solve(self):
-        raise NotImplementedError
+        raise NotImplementedError("abstract method")
