@@ -17,7 +17,7 @@ def main():
     parser.add_argument(
         "method",
         help="Method to solve puzzle",
-        options=["logic", "backtrack", "stochastic"],
+        choices=["logic", "backtrack", "stochastic"],
     )
     args = parser.parse_args()
     solver_cls = None
@@ -32,8 +32,9 @@ def main():
     print(puzzle)
     print("Solving...")
     solver = solver_cls(puzzle)
+    solver.solve()
     print("After:")
-    print(solver.solve())
+    print(solver.puzzle)
 
 
 if __name__ == "__main__":
